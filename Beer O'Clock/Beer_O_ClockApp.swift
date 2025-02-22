@@ -10,8 +10,12 @@ import SwiftUI
 @main
 struct Beer_O_ClockApp: App {
     var body: some Scene {
-        WindowGroup {
-            ContentView()
+        MenuBarExtra {
+            FormView()
+        } label: {
+            BarView()
         }
+        .menuBarExtraStyle(.window)
+
     }
 }
