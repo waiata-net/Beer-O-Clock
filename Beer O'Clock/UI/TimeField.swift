@@ -13,7 +13,7 @@ struct TimeField: View {
     @Binding var time: Time
     
     var body: some View {
-        HStack {
+        VStack {
             DatePicker(label, selection: $time.date, displayedComponents: .hourAndMinute)
             Slider(value: $time.seconds, in: 0...86400, step: 15 * 60)
         }

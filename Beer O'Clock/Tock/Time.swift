@@ -57,7 +57,7 @@ struct Time: RawRepresentable, Equatable {
     
     
     var hhmm: String {
-        date.formatted(date: .omitted, time: .shortened)
+        String(format: "%01d:%02d", hour, minute)
     }
     
    

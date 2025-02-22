@@ -9,11 +9,8 @@ import SwiftUI
 
 struct PintView: View {
     
-    @AppStorage("Work Time") var workTime = Time(hour: 9)
-    @AppStorage("Beer Time") var beerTime = Time(hour: 17)
+    @Environment(Tock.self) var tock: Tock
     
-    let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
-
     var body: some View {
         LinearGradient(stops: stops, startPoint: bot, endPoint: top)
             .mask(Image(.beer)
@@ -25,27 +22,12 @@ struct PintView: View {
                     .scaledToFit()
             }
             .frame(minWidth: 24, minHeight: 24)
+            
     }
-    
     
     let bot = UnitPoint(x: 0, y: 1)
     var top: UnitPoint {
-        UnitPoint(x: 0, y: 1 - progress)
-    }
-    
-    var progress: CGFloat {
-        guard elapsed.seconds > 0,
-              duration.seconds > 0
-        else { return 0 }
-        return elapsed.seconds / duration.seconds
-    }
-    
-    var elapsed: Time {
-        Time() - workTime
-    }
-    
-    var duration: Time {
-        beerTime - workTime
+        UnitPoint(x: 0, y: 1 - tock.progress)
     }
     
     let stops: [Gradient.Stop] = [
@@ -61,4 +43,5 @@ struct PintView: View {
 
 #Preview {
     PintView()
+        .environment(Tock())
 }
