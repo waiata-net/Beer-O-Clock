@@ -12,21 +12,17 @@ struct FormView: View {
     @Environment(Tock.self) var tock: Tock
     
     var body: some View {
+        @Bindable var tock = tock
         Form {
-            Section("Times") {
-                @Bindable var tock = tock
-                TimeField(label: "Start Work:", time: $tock.times.work)
-                TimeField(label: "Beer O'Clock:", time: $tock.times.beer)
+            ForEach(tock.ticks.ticks.indices, id: \.self) { i in
+                TickView(tick: $tock.ticks[i])
             }
-            Section("Progress") {
-                TockView()
-                PintView()
-                    .frame(minHeight: 120)
-            }
-                QuitButt()
-                
+            TockView()
+            Divider()
+            QuitButt()
+            
         }
-        .formStyle(.grouped)
+        .formStyle(.automatic)
         .frame(minWidth: 360)
         .padding()
     }

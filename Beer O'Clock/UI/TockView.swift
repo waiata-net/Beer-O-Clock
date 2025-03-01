@@ -13,15 +13,19 @@ struct TockView: View {
     @Environment(Tock.self) var tock: Tock
     
     var body: some View {
-        if let remaining = tock.remaining {
-            Text(remaining.hhmm + " Remaining")
-                .font(.largeTitle)
-                .frame(maxWidth: .infinity, alignment: .center)
-        } else {
-            Text("Beer O'Clock!")
-                .font(.largeTitle)
-                .frame(maxWidth: .infinity, alignment: .center)
+        VStack {
+//        Text(tock.last?.title ?? "")
+            
+            PintView()
+                .frame(minHeight: 120)
+            
+//            if let next = tock.next?.title,
+//               let hhmm = tock.remaining?.hhmm {
+//                Text(hhmm + " until " + next)
+//            }
         }
+        .font(.largeTitle)
+        .frame(maxWidth: .infinity, alignment: .center)
     }
 }
 

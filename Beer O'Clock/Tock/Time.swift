@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Time: RawRepresentable, Equatable {
+struct Time: Codable, Equatable  {
+    
     
     // MARK: - Coding
     
@@ -17,23 +18,6 @@ struct Time: RawRepresentable, Equatable {
     
     var second: Int = 0
     
-    
-    // MARK: - Raw Representable
-    
-    typealias RawValue = Int
-    
-    var rawValue: Int {
-        get {
-            hour * 3600 + minute * 60 + second
-        }
-        set {
-            self = .init(rawValue: newValue)
-        }
-    }
-    
-    init(rawValue: Int) {
-        self = Self(seconds: rawValue)
-    }
     
     /// Initialise as current time
     init() {
@@ -49,10 +33,11 @@ struct Time: RawRepresentable, Equatable {
         self.hour = hour
     }
     
-    init(seconds: Int) {
-        self.hour = seconds / 3600
-        self.minute = (seconds % 3600) / 60
-        self.second = seconds % 60
+    init(seconds: Double) {
+        let s = Int(seconds)
+        self.hour = s / 3600
+        self.minute = (s % 3600) / 60
+        self.second = s % 60
     }
     
     
@@ -60,6 +45,15 @@ struct Time: RawRepresentable, Equatable {
         String(format: "%01d:%02d", hour, minute)
     }
     
+    
+    var seconds: Double {
+        get {
+            Double(hour * 3600 + minute * 60 + second)
+        }
+        set {
+            self = Self(seconds: newValue)
+        }
+    }
    
     var components: DateComponents {
         var components = DateComponents()
@@ -69,7 +63,24 @@ struct Time: RawRepresentable, Equatable {
         return components
     }
     
-    var date: Date {
+    
+    var past: Date {
+        if today.timeIntervalSinceNow > 0 {
+            return today
+        } else {
+            return Calendar.current.date(byAdding: .day, value: -1, to: today) ?? today
+        }
+    }
+    
+    var future: Date {
+        if today.timeIntervalSinceNow < 0 {
+            return today
+        } else {
+            return Calendar.current.date(byAdding: .day, value: 1, to: today) ?? today
+        }
+    }
+    
+    var today: Date {
         get {
             Calendar.current.date(from: components) ?? Date()
         }
@@ -81,29 +92,22 @@ struct Time: RawRepresentable, Equatable {
         }
     }
     
-    var seconds: TimeInterval {
-        get {
-            Double(rawValue)
-        }
-        set {
-            self = Self(seconds: Int(newValue))
-        }
-    }
     
-    static func +(lhs: Self, rhs: Self) -> Self {
-        Self(rawValue: lhs.rawValue + rhs.rawValue)
-    }
-    static func -(lhs: Self, rhs: Self) -> Self {
-        Self(rawValue: lhs.rawValue - rhs.rawValue)
-    }
-    static func *(lhs: Self, rhs: Self) -> Self {
-        Self(rawValue: lhs.rawValue * rhs.rawValue)
-    }
-    static func /(lhs: Self, rhs: Self) -> Self {
-        guard rhs.seconds != 0 else { return lhs }
-        return Self(seconds: Int(lhs.seconds / rhs.seconds))
-    }
     
-    static let dayRange: ClosedRange = 0...86400
+//    static func +(lhs: Self, rhs: Self) -> Self {
+//        Self(rawValue: lhs.rawValue + rhs.rawValue)
+//    }
+//    static func -(lhs: Self, rhs: Self) -> Self {
+//        Self(rawValue: lhs.rawValue - rhs.rawValue)
+//    }
+//    static func *(lhs: Self, rhs: Self) -> Self {
+//        Self(rawValue: lhs.rawValue * rhs.rawValue)
+//    }
+//    static func /(lhs: Self, rhs: Self) -> Self {
+//        guard rhs.seconds != 0 else { return lhs }
+//        return Self(seconds: Int(lhs.seconds / rhs.seconds))
+//    }
+//    
+    static let dayRange: ClosedRange = 0.0...86400
     
 }

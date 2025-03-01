@@ -9,12 +9,14 @@ import SwiftUI
 
 struct TimeField: View {
     
-    var label: String = ""
     @Binding var time: Time
     
     var body: some View {
-        VStack {
-            DatePicker(label, selection: $time.date, displayedComponents: .hourAndMinute)
+        HStack {
+            DatePicker(selection: $time.today, displayedComponents: .hourAndMinute) {
+                Label("Time", systemImage: "clock")
+            }
+            .datePickerStyle(.compact)
             Slider(value: $time.seconds, in: 0...86400, step: 15 * 60)
         }
     }
@@ -22,6 +24,6 @@ struct TimeField: View {
 }
 
 #Preview {
-    @Previewable @State var time = Time(rawValue: Int.random(in: Time.dayRange))
+    @Previewable @State var time = Time(seconds: Double.random(in: Time.dayRange))
     TimeField(time: $time)
 }

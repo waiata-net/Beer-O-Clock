@@ -7,7 +7,7 @@
 import Foundation
 
 @propertyWrapper
-struct Preference<T: RawRepresentable> {
+struct Preference<T: Codable> {
     
     var store: UserDefaults = .standard
     var key: String
@@ -15,17 +15,31 @@ struct Preference<T: RawRepresentable> {
     
     var wrappedValue: T {
         get {
-            guard let raw = store.value(forKey: key) as? T.RawValue
-            else { return def }
-            return T(rawValue: raw) ?? def
+            if let value = store.object(forKey: key) as? T {
+                return value
+            }
+            else if let data = store.data(forKey: key),
+                    let decoded = try? PropertyListDecoder().decode(T.self, from: data) {
+                return decoded
+            } else {
+                return def
+            }
         }
         set {
-            let raw = newValue.rawValue
-            store.setValue(raw, forKey: key)
+            if isStandard {
+                store.set(newValue, forKey: key)
+            } else if let data = try? PropertyListEncoder().encode(newValue) {
+                
+            }
         }
     }
     
+    var isStandard: Bool {
+        def is Bool || def is Int || def is Float || def is Double || def is String || def is URL
+    }
+                
 }
+
 
 extension Preference where T: ExpressibleByNilLiteral {
     init(key: String, store: UserDefaults = .standard) {

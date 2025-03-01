@@ -10,10 +10,11 @@ import Combine
 
 @Observable
 class Tock {
-
-    var times = Times() {
-        didSet { update() }
-    }
+    
+    var ticks = Ticks()
+    
+    var last: Date?
+    var next: Date?
     
     var ticker: Timer?
     
@@ -24,35 +25,43 @@ class Tock {
         }
     }
     
-    
     func update() {
-        guard elapsed.seconds > 0,
-              duration.seconds > 0
-        else { return }
-        progress = elapsed.seconds / duration.seconds
         
-        let delta = times.beer - Time()
-        remaining = delta.seconds > 0 ? delta : nil
+//        let last = ticks.last
+//        
+//        if last != self.last {
+//            last?.announce()
+//            self.last = last
+//        }
+//        
+//        
+//        next = ticks.next
+//        if let next {
+//            remaining = next.time - Time()
+//        } else {
+//            remaining = nil
+//        }
         
     }
+    
+    
+    
     
     var remaining: Time?
     
     var progress: CGFloat = 0
     
-    var elapsed: Time {
-        Time() - times.work
+    var elapsed: TimeInterval? {
+        0
+//        guard let last else { return nil }
+//        return last.time.date.timeIntervalSinceNow
     }
     
-    var duration: Time {
-        times.beer - times.work
+    var duration: TimeInterval? {
+        0
+//        guard let last, let next else { return nil }
+//        return next.time.seconds - last.time.seconds
     }
     
-    struct Times {
-        @Preference(key: "Work Time", def: Time(hour: 9))
-        var work: Time
-        
-        @Preference(key: "Beer Time", def: Time(hour: 17))
-        var beer: Time
-    }
+    
 }
