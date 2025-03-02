@@ -36,7 +36,7 @@ struct TickView: View {
         }
         .textFieldStyle(.roundedBorder)
         .labelStyle(.iconOnly)
-
+        
         
     }
 }

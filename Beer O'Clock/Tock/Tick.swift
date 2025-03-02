@@ -18,8 +18,6 @@ struct Tick: Codable, Equatable {
     var playSound: Bool = true
     var phase: CGFloat = 0
     
-    
-
     var sound: UNNotificationSound? {
         return UNNotificationSound(named: UNNotificationSoundName(audio))
     }
