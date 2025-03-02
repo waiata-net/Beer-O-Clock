@@ -12,7 +12,7 @@ struct TickView: View {
     @Binding var tick: Tick
     
     var body: some View {
-        GroupBox {
+        GroupBox(tick.title) {
             TextField(text: $tick.title) {
                 Label("Title", systemImage: "pin")
             }

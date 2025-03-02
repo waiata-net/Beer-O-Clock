@@ -15,10 +15,13 @@ struct FormView: View {
     var body: some View {
         @Bindable var tock = tock
         ScrollView {
-            ForEach(tock.ticks.ticks.indices, id: \.self) { i in
-                TickView(tick: $tock.ticks.ticks[i])
-            }
             TockView()
+            Section {
+                ForEach(tock.ticks.ticks.indices, id: \.self) { i in
+                    TickView(tick: $tock.ticks.ticks[i])
+                }
+            }
+            .padding()
             Form {
                 Section {
                     LoginLaunchButt()
@@ -28,7 +31,6 @@ struct FormView: View {
             .formStyle(.grouped)
         }
         .frame(minWidth: 360)
-        .padding()
         
     }
 }

@@ -23,11 +23,14 @@ struct Tick: Codable, Equatable {
     }
     
     func announce() {
+        guard notify else { return }
         Self.requestPermission()
         let content = UNMutableNotificationContent()
         content.title = title
         content.subtitle = detail
-        content.sound = sound
+        if playSound {
+            content.sound = sound
+        }
 
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
