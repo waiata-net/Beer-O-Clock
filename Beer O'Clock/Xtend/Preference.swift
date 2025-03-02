@@ -29,6 +29,7 @@ struct Preference<T: Codable> {
             if isStandard {
                 store.set(newValue, forKey: key)
             } else if let data = try? PropertyListEncoder().encode(newValue) {
+                store.set(data, forKey: key)
                 
             }
         }

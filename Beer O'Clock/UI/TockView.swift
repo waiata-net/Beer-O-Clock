@@ -12,17 +12,19 @@ struct TockView: View {
     
     @Environment(Tock.self) var tock: Tock
     
+    let formatter = RelativeDateTimeFormatter()
+    
     var body: some View {
         VStack {
-//        Text(tock.last?.title ?? "")
-            
+        Text(tock.last?.title ?? "")
             PintView()
                 .frame(minHeight: 120)
             
-//            if let next = tock.next?.title,
-//               let hhmm = tock.remaining?.hhmm {
-//                Text(hhmm + " until " + next)
-//            }
+            if let next = tock.next {
+                let until = next.title
+                let togo = formatter.localizedString(for: next.time.future, relativeTo: .now)
+                Text(until + " " + togo)
+            }
         }
         .font(.largeTitle)
         .frame(maxWidth: .infinity, alignment: .center)

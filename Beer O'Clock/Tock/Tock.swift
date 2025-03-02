@@ -11,10 +11,14 @@ import Combine
 @Observable
 class Tock {
     
-    var ticks = Ticks()
+    var ticks = Ticks() {
+        didSet {
+            update()
+        }
+    }
     
-    var last: Date?
-    var next: Date?
+    var last: Tick?
+    var next: Tick?
     
     var ticker: Timer?
     
@@ -27,40 +31,54 @@ class Tock {
     
     func update() {
         
-//        let last = ticks.last
-//        
-//        if last != self.last {
-//            last?.announce()
-//            self.last = last
-//        }
-//        
-//        
-//        next = ticks.next
-//        if let next {
-//            remaining = next.time - Time()
-//        } else {
-//            remaining = nil
-//        }
+        let last = ticks.last
+        
+        if last != self.last {
+            last?.announce()
+            self.last = last
+        }
+    
+        
+        next = ticks.next
+        if let next {
+            
+            remaining = next.time.future.timeIntervalSinceNow
+            
+            
+        }
+        
+        if direction > 0 {
+            phase = progress * direction
+        } else {
+            phase = 1 + progress * direction
+        }
+        
+        
         
     }
     
+    var phase: CGFloat = 0
     
+    var direction: CGFloat {
+        guard let last, let next else { return 1 }
+        return next.phase - last.phase
+    }
     
+    var remaining: TimeInterval?
     
-    var remaining: Time?
-    
-    var progress: CGFloat = 0
+    var progress: CGFloat {
+        guard let elapsed, let duration else { return 0 }
+        return elapsed / duration
+    }
     
     var elapsed: TimeInterval? {
-        0
-//        guard let last else { return nil }
-//        return last.time.date.timeIntervalSinceNow
+        guard let last else { return nil }
+        return Date.now.timeIntervalSince(last.time.past)
     }
     
     var duration: TimeInterval? {
-        0
-//        guard let last, let next else { return nil }
-//        return next.time.seconds - last.time.seconds
+        guard let last, let next else { return nil }
+        return next.time.future.timeIntervalSince(last.time.past)
     }
     
     

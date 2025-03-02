@@ -18,7 +18,7 @@ struct BarView: View {
             Image(nsImage: image)
                 .resizable()
                 .scaledToFit()
-                .onChange(of: tock.progress) { _, _ in
+                .onChange(of: tock.phase) { _, _ in
                     render()
                 }
         } else {

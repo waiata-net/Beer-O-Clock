@@ -18,6 +18,10 @@ struct Time: Codable, Equatable  {
     
     var second: Int = 0
     
+    enum CodingKeys: String, CodingKey {
+        case hour, minute, second
+    }
+    
     
     /// Initialise as current time
     init() {
@@ -65,7 +69,7 @@ struct Time: Codable, Equatable  {
     
     
     var past: Date {
-        if today.timeIntervalSinceNow > 0 {
+        if today.timeIntervalSinceNow < 0 {
             return today
         } else {
             return Calendar.current.date(byAdding: .day, value: -1, to: today) ?? today
@@ -73,7 +77,7 @@ struct Time: Codable, Equatable  {
     }
     
     var future: Date {
-        if today.timeIntervalSinceNow < 0 {
+        if today.timeIntervalSinceNow > 0 {
             return today
         } else {
             return Calendar.current.date(byAdding: .day, value: 1, to: today) ?? today
@@ -82,7 +86,8 @@ struct Time: Codable, Equatable  {
     
     var today: Date {
         get {
-            Calendar.current.date(from: components) ?? Date()
+            Calendar.current.date(byAdding: components, to: Calendar.current.startOfDay(for: .now)) ?? .now
+            //Calendar.current.date(from: components) ?? Date()
         }
         set {
             let components = Calendar.current.dateComponents([.hour, .minute, .second], from: newValue)

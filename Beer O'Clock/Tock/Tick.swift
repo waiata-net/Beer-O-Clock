@@ -73,15 +73,15 @@ struct Ticks {
         }
     }
     
-//    var last: Tick? {
-//        ticks.max {
-//            $0.time < Time() && $0.time > $1.time
-//        }
-//    }
-//    
-//    var next: Tick? {
-//        return ticks.min {
-//            $0.time > Time() && $0.time < $1.time
-//        }
-//    }
+    var last: Tick? {
+        ticks.max {
+            $0.time.past < $1.time.past
+        }
+    }
+    
+    var next: Tick? {
+        return ticks.min {
+            $0.time.future < $1.time.future
+        }
+    }
 }

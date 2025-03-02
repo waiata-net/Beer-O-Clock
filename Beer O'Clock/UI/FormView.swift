@@ -15,7 +15,7 @@ struct FormView: View {
         @Bindable var tock = tock
         Form {
             ForEach(tock.ticks.ticks.indices, id: \.self) { i in
-                TickView(tick: $tock.ticks[i])
+                TickView(tick: $tock.ticks.ticks[i])
             }
             TockView()
             Divider()

@@ -27,7 +27,7 @@ struct PintView: View {
     
     let bot = UnitPoint(x: 0, y: 1)
     var top: UnitPoint {
-        UnitPoint(x: 0, y: 1 - tock.progress)
+        UnitPoint(x: 0, y: 1 - tock.phase)
     }
     
     let stops: [Gradient.Stop] = [
