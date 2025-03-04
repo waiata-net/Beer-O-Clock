@@ -40,14 +40,16 @@ struct Tick: Codable, Equatable {
     static let work = Tick(
         time: Time(hour: 9),
         title: "Work Time",
-        detail: "Head Down, Bum Up!"
+        detail: "Head Down, Bum Up!",
+        audio: "Bell.aif",
+        phase: 0
     )
     
     static let beer = Tick(
         time: Time(hour: 17),
         title: "Beer O'Clock!",
         detail: "Time crack open a nice cold one",
-        audio: "Beer.mp3",
+        audio: "Beer.aif",
         phase: 1
     )
     

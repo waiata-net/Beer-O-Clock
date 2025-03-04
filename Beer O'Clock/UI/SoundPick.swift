@@ -12,7 +12,7 @@ struct SoundPick: View {
     @Binding var sound: String
     
     var bundledSounds: [URL] {
-        Bundle.main.urls(forResourcesWithExtension: "mp3", subdirectory: nil) ?? []
+        Bundle.main.urls(forResourcesWithExtension: "aif", subdirectory: nil) ?? []
     }
     
     var body: some View {
@@ -31,6 +31,6 @@ struct SoundPick: View {
 }
 
 #Preview {
-    @Previewable @State var sound = "Beer.mp3"
+    @Previewable @State var sound = "Beer.aif"
     SoundPick(sound: $sound)
 }

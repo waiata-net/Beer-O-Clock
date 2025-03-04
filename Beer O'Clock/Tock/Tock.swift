@@ -33,7 +33,7 @@ class Tock {
         
         let last = ticks.last
         
-        if last != self.last {
+        if last?.title != self.last?.title {
             last?.announce()
             self.last = last
         }
