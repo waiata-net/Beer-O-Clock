@@ -11,29 +11,30 @@ struct FormView: View {
     
     @Environment(Tock.self) var tock: Tock
     
-       
+    
     var body: some View {
         @Bindable var tock = tock
         ScrollView {
             TockView()
-            Section {
-                ForEach(tock.ticks.ticks.indices, id: \.self) { i in
-                    TickView(tick: $tock.ticks.ticks[i])
-                }
+                .padding()
+            ForEach(tock.ticks.ticks.indices, id: \.self) { i in
+                TickView(tick: $tock.ticks.ticks[i])
+                    .padding(.horizontal)
             }
-            .padding()
-            Form {
-                Section {
+            
+            GroupBox {
+                VStack {
                     LoginLaunchButt()
                     QuitButt()
                 }
+                .frame(maxWidth: .infinity)
             }
-            .formStyle(.grouped)
+            .padding()
         }
-        .frame(minWidth: 360)
-        
+        .frame(minWidth: 360, minHeight: 480)
     }
 }
+
 
 #Preview {
     FormView()

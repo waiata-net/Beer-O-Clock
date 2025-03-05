@@ -18,7 +18,7 @@ struct TockView: View {
         VStack {
         Text(tock.last?.title ?? "")
             PintView()
-                .frame(minHeight: 120)
+                .frame(minHeight: 180)
             
             if let next = tock.next {
                 let until = next.title

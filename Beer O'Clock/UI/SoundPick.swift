@@ -16,17 +16,14 @@ struct SoundPick: View {
     }
     
     var body: some View {
-        Picker(selection: $sound) {
+        Picker("", selection: $sound) {
             Text("System Default").tag("")
             Divider()
             ForEach(bundledSounds, id: \.absoluteString) { url in
                 Text(url.deletingPathExtension().lastPathComponent).tag(url.lastPathComponent)
             }
             Divider()
-        } label: {
-            Label("Sound", systemImage: "speaker.wave.2.fill")
         }
-        .labelStyle(.iconOnly)
     }
 }
 
