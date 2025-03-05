@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-1102,0)">
+        <g id="Dimple-Fill" transform="matrix(0.948148,0,0,0.948148,1034.68,31.2889)">
+            <rect x="71" y="-33" width="1080" height="1080" style="fill:none;"/>
+            <clipPath id="_clip1">
+                <rect x="71" y="-33" width="1080" height="1080"/>
+            </clipPath>
+            <g clip-path="url(#_clip1)">
+                <g transform="matrix(1.05469,0,0,1.05469,-1074.39,-33)">
+                    <path d="M1118,32C1118,32 1122.8,-0 1451,-0C1785.41,-0 1804.46,32 1804.46,32C1804.46,32 1817.91,363.168 1821.46,384C1825.01,404.832 1810.09,437.281 1804.46,512C1798.83,586.719 1806.68,599.604 1804.46,625C1802.24,650.396 1775.93,720.812 1755.46,800C1734.99,879.188 1706.46,992 1706.46,992C1706.46,992 1702.55,1024 1470,1024C1217.26,1024 1216,992 1216,992C1216,992 1187.47,879.188 1167,800C1146.53,720.812 1120.22,650.396 1118,625C1115.78,599.604 1123.63,586.719 1118,512C1112.37,437.281 1097.45,404.832 1101,384C1104.55,363.168 1118,32 1118,32Z"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -9,15 +9,15 @@ import SwiftUI
 
 struct PintView: View {
     
-    @Environment(Tock.self) var tock: Tock
+    @Environment(Beer.self) var beer: Beer
     
     var body: some View {
-        LinearGradient(stops: stops, startPoint: bot, endPoint: top)
-            .mask(Image(.beer)
+        LinearGradient(stops: beer.tock.liquid.stops, startPoint: bot, endPoint: top)
+            .mask(Image(beer.tock.vessel.fill)
                 .resizable()
                 .scaledToFit())
             .overlay {
-                Image(.glass)
+                Image(beer.tock.vessel.glass)
                     .resizable()
                     .scaledToFit()
             }
@@ -27,15 +27,8 @@ struct PintView: View {
     
     let bot = UnitPoint(x: 0, y: 1)
     var top: UnitPoint {
-        UnitPoint(x: 0, y: 1 - tock.phase)
+        UnitPoint(x: 0, y: 1 - beer.phase)
     }
-    
-    let stops: [Gradient.Stop] = [
-        Gradient.Stop(color: .amber, location: 0),
-        Gradient.Stop(color: .amber, location: 0.69),
-        Gradient.Stop(color: .head, location: 0.88),
-        Gradient.Stop(color: .clear, location: 1)
-    ]
     
 }
 
@@ -43,5 +36,5 @@ struct PintView: View {
 
 #Preview {
     PintView()
-        .environment(Tock())
+        .environment(Beer())
 }

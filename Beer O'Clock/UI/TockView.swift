@@ -10,17 +10,17 @@ import SwiftUI
 struct TockView: View {
     
     
-    @Environment(Tock.self) var tock: Tock
+    @Environment(Beer.self) var beer: Beer
     
     let formatter = RelativeDateTimeFormatter()
     
     var body: some View {
         VStack {
-        Text(tock.last?.title ?? "")
+        Text(beer.last?.title ?? "")
             PintView()
                 .frame(minHeight: 180)
             
-            if let next = tock.next {
+            if let next = beer.next {
                 let until = next.title
                 let togo = formatter.localizedString(for: next.time.future, relativeTo: .now)
                 Text(until + " " + togo)
@@ -33,5 +33,5 @@ struct TockView: View {
 
 #Preview {
     TockView()
-        .environment(Tock())
+        .environment(Beer())
 }

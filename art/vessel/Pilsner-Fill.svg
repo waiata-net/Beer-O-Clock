@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-1102,-4528)">
+        <g id="Pilsner-Fill" transform="matrix(0.948148,0,0,0.948148,1034.68,4559.29)">
+            <rect x="71" y="-33" width="1080" height="1080" style="fill:none;"/>
+            <g transform="matrix(1.05469,0,0,1.05469,-1074.39,-4808.62)">
+                <path d="M1766,4544C1783.39,4544.6 1781.68,4558.01 1781.7,4558.03C1781.9,4558.33 1778.12,4865.83 1750,4976C1716.97,5105.42 1702,5281.69 1702,5344C1702,5407.13 1716,5385.57 1716,5488C1716,5511.17 1476,5513.17 1476,5488C1476,5383.05 1494.01,5407.12 1494,5344C1493.99,5281.51 1481.12,5104.33 1446,4976C1415.95,4866.21 1411.1,4560.02 1411.3,4559.72C1411.32,4559.69 1412.26,4544.47 1430,4544C1430,4544 1542,4528 1598,4528C1654,4528 1766,4544 1766,4544Z"/>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -61,30 +61,3 @@ struct Tick: Codable, Equatable {
         }
     }
 }
-
-struct Ticks {
-    
-    @Preference(key: "Ticks", def: [.work, .beer])
-    var ticks: [Tick]
-    
-    subscript(_ index: Int) -> Tick {
-        get {
-            ticks[index]
-        }
-        set {
-            ticks[index] = newValue
-        }
-    }
-    
-    var last: Tick? {
-        ticks.max {
-            $0.time.past < $1.time.past
-        }
-    }
-    
-    var next: Tick? {
-        return ticks.min {
-            $0.time.future < $1.time.future
-        }
-    }
-}

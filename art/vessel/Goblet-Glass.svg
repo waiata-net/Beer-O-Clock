@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,0,-2264)">
+        <g id="Goblet-Glass" transform="matrix(0.948148,0,0,0.948148,-67.3185,2295.29)">
+            <rect x="71" y="-33" width="1080" height="1080" style="fill:none;"/>
+            <g transform="matrix(1.05469,0,0,1.05469,-1074.39,-3614.72)">
+                <path d="M1822,3428C1822,3428 1853.85,3508.01 1854,3588C1854.18,3683.12 1852.66,3876.93 1726,4004C1693.55,4036.55 1630,4102.88 1630,4196C1630,4303.99 1694,4329.47 1694,4356C1694,4382.53 1822,4388 1822,4388L1822,4420L1598,4411L1374,4420L1374,4388C1374,4388 1496,4382.53 1496,4356C1496,4329.47 1566,4303.99 1566,4196C1566,4101.88 1500.35,4035.01 1470,4004C1341.27,3872.47 1341.9,3683.12 1342,3588C1342.09,3507.01 1374,3428 1374,3428L1822,3428ZM1790,3443C1790,3443 1822.07,3509.73 1822,3588C1821.83,3783.88 1792.53,3905.42 1694,4004C1598.65,4099.4 1596.3,4100.78 1502,4004C1408.15,3907.68 1374.15,3778.88 1374,3588C1373.93,3506.73 1406,3443 1406,3443L1790,3443Z" style="fill:white;fill-opacity:0.5;"/>
+            </g>
+        </g>
+    </g>
+</svg>

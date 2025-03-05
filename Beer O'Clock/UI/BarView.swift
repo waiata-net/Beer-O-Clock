@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BarView: View {
     
-    @Environment(Tock.self) var tock: Tock
+    @Environment(Beer.self) var beer: Beer
     
     @State var image: NSImage?
 
@@ -18,7 +18,7 @@ struct BarView: View {
             Image(nsImage: image)
                 .resizable()
                 .scaledToFit()
-                .onChange(of: tock.phase) { _, _ in
+                .onChange(of: beer.phase) { _, _ in
                     render()
                 }
         } else {
@@ -30,7 +30,7 @@ struct BarView: View {
     }
     
     func render() {
-        let renderer = ImageRenderer(content: PintView().environment(tock))
+        let renderer = ImageRenderer(content: PintView().environment(beer))
         renderer.scale = NSScreen.main?.backingScaleFactor ?? 2.0
         if let image = renderer.nsImage {
             self.image = image
@@ -41,5 +41,5 @@ struct BarView: View {
 
 #Preview {
     BarView()
-        .environment(Tock())
+        .environment(Beer())
 }

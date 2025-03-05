@@ -1,0 +1,92 @@
+{
+  "images" : [
+    {
+      "size" : "x",
+      "idiom" : "mac",
+      "filename" : "Dimple-Glass.svg",
+      "scale" : "x"
+    },
+    {
+      "size" : "x",
+      "idiom" : "mac",
+      "filename" : "Dimple-Fill.svg",
+      "scale" : "x"
+    },
+    {
+      "size" : "x",
+      "idiom" : "mac",
+      "filename" : "Boot-Glass.svg",
+      "scale" : "x"
+    },
+    {
+      "size" : "x",
+      "idiom" : "mac",
+      "filename" : "Bool-Fill.svg",
+      "scale" : "x"
+    },
+    {
+      "size" : "x",
+      "idiom" : "mac",
+      "filename" : "Goblet-Glass.svg",
+      "scale" : "x"
+    },
+    {
+      "size" : "x",
+      "idiom" : "mac",
+      "filename" : "Goblet-Fill.svg",
+      "scale" : "x"
+    },
+    {
+      "size" : "x",
+      "idiom" : "mac",
+      "filename" : "Tulip-Glass.svg",
+      "scale" : "x"
+    },
+    {
+      "size" : "x",
+      "idiom" : "mac",
+      "filename" : "Tulip-Fill.svg",
+      "scale" : "x"
+    },
+    {
+      "size" : "x",
+      "idiom" : "mac",
+      "filename" : "Pilsner-Glass.svg",
+      "scale" : "x"
+    },
+    {
+      "size" : "x",
+      "idiom" : "mac",
+      "filename" : "Pilsner-Fill.svg",
+      "scale" : "x"
+    },
+    {
+      "size" : "x",
+      "idiom" : "mac",
+      "filename" : "Handle-Glass.svg",
+      "scale" : "x"
+    },
+    {
+      "size" : "x",
+      "idiom" : "mac",
+      "filename" : "Handle-Fill.svg",
+      "scale" : "x"
+    },
+    {
+      "size" : "x",
+      "idiom" : "mac",
+      "filename" : "Pint-Glass.svg",
+      "scale" : "x"
+    },
+    {
+      "size" : "x",
+      "idiom" : "mac",
+      "filename" : "Pint-Fill.svg",
+      "scale" : "x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

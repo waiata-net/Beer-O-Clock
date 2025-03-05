@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-1102,-1132)">
+        <g id="Bool-Fill" transform="matrix(0.948148,0,0,0.948148,1034.68,1163.29)">
+            <rect x="71" y="-33" width="1080" height="1080" style="fill:none;"/>
+            <g transform="matrix(1.05469,0,0,1.05469,-1074.39,-1226.91)">
+                <path d="M1406,2118C1422.57,2134.52 1506,2128 1506,2128C1506,2128 1514.24,2124.42 1534,2124C1659.76,2121.34 1625.06,2124 1662,2124C1698.94,2124 1830.3,2135.74 1854,2124C1877.7,2112.26 1918.35,2092.63 1886,2060C1853.65,2027.37 1630,2004.26 1630,1900C1630,1795.74 1711,1386.97 1711,1292C1711,1197.03 1694,1164 1694,1164C1694,1164 1685.12,1132 1514.45,1132C1343.78,1132 1342,1164 1342,1164C1342,1164 1322,1198.42 1322,1292C1322,1385.58 1406,1834.7 1406,1900C1406,1965.3 1374,2027.34 1374,2060C1374,2092.66 1386.26,2098.32 1406,2118Z"/>
+            </g>
+        </g>
+    </g>
+</svg>

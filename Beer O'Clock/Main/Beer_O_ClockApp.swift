@@ -10,15 +10,15 @@ import SwiftUI
 @main
 struct Beer_O_ClockApp: App {
     
-    @State var tock = Tock()
+    @State var beer = Beer()
     
     var body: some Scene {
         MenuBarExtra {
             FormView()
-                .environment(tock)
+                .environment(beer)
         } label: {
             BarView()
-                .environment(tock)
+                .environment(beer)
         }
         .menuBarExtraStyle(.window)
 

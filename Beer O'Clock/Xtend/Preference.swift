@@ -19,7 +19,7 @@ struct Preference<T: Codable> {
                 return value
             }
             else if let data = store.data(forKey: key),
-                    let decoded = try? PropertyListDecoder().decode(T.self, from: data) {
+                    let decoded = try? JSONDecoder().decode(T.self, from: data) {
                 return decoded
             } else {
                 return def
@@ -28,7 +28,7 @@ struct Preference<T: Codable> {
         set {
             if isStandard {
                 store.set(newValue, forKey: key)
-            } else if let data = try? PropertyListEncoder().encode(newValue) {
+            } else if let data = try? JSONEncoder().encode(newValue) {
                 store.set(data, forKey: key)
                 
             }

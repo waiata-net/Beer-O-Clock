@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-1102,-2264)">
+        <g id="Goblet-Fill" transform="matrix(0.948148,0,0,0.948148,1034.68,2295.29)">
+            <rect x="71" y="-33" width="1080" height="1080" style="fill:none;"/>
+            <g transform="matrix(1.05469,0,0,1.05469,-1074.39,-3614.72)">
+                <path d="M1822,3428C1822,3428 1853.85,3508.01 1854,3588C1854.18,3683.12 1854.43,3878.72 1726,4004C1564.85,4161.2 1628.25,4162.58 1470,4004C1340,3873.73 1341.9,3683.12 1342,3588C1342.09,3507.01 1374,3428 1374,3428C1374,3428 1373.33,3396 1598,3396C1822.67,3396 1822,3428 1822,3428Z"/>
+            </g>
+        </g>
+    </g>
+</svg>

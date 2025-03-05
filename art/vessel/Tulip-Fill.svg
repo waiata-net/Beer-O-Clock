@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-1102,-3396)">
+        <g id="Tulip-Fill" transform="matrix(0.948148,0,0,0.948148,1034.68,3427.29)">
+            <rect x="71" y="-33" width="1080" height="1080" style="fill:none;"/>
+            <g transform="matrix(1.05469,0,0,1.05469,-1074.39,-3614.72)">
+                <path d="M1827,3428C1827,3428 1828.75,3464.63 1830,3506C1832.05,3573.38 1918,3637.88 1918,3796C1918,3995.53 1726,4076 1726,4076C1726,4076 1640.67,4196 1598,4196C1555.33,4196 1470,4076 1470,4076C1470,4076 1278,3996.53 1278,3797C1278,3638.88 1363.95,3573.38 1366,3506C1367.26,3464.63 1367,3428 1367,3428C1367,3428 1366.33,3396 1598,3396C1829.67,3396 1827,3428 1827,3428Z"/>
+            </g>
+        </g>
+    </g>
+</svg>
