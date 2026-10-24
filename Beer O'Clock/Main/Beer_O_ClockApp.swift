@@ -11,16 +11,26 @@ import SwiftUI
 struct Beer_O_ClockApp: App {
     
     @State var beer = Beer()
+    @State var brolly = Brolly()
     
     var body: some Scene {
         MenuBarExtra {
             FormView()
                 .environment(beer)
+                .environment(brolly)
         } label: {
             BarView()
                 .environment(beer)
+                .environment(brolly)
         }
         .menuBarExtraStyle(.window)
-
     }
+}
+
+#Preview{
+    BarView()
+        .environment(Beer())
+        .frame(width: 360, height: 24)
+    FormView()
+        .environment(Beer())
 }

@@ -8,43 +8,40 @@
 import SwiftUI
 
 struct FormView: View {
-    
+
     @Environment(Beer.self) var beer: Beer
-    
-    
+
     var body: some View {
         @Bindable var beer = beer
-        ScrollView {
+        Form {
             TockView()
                 .padding()
-            ForEach(beer.tock.ticks.indices, id: \.self) { i in
-                TickView(tick: $beer.tock.ticks[i])
-                    .padding(.horizontal)
+            Section("Daily") {
+                DailySets()
             }
-            
-            GroupBox {
-                VStack {
-                    VesselPick(vessel: $beer.tock.vessel)
-                    LiquidPick(liquid: $beer.tock.liquid)
-                }
-                .frame(maxWidth: .infinity)
-                .padding()
+
+            Section("Drink") {
+                DrinkSets()
             }
-            .padding()
-            
-            GroupBox {
-                VStack {
-                    LoginLaunchButt()
-                    QuitButt()
-                }
-                .frame(maxWidth: .infinity)
+
+            Section("Location") {
+                BrollySets()
             }
-            .padding()
+
+            Section("Update") {
+                //                UpdateSets()
+            }
+
+            Section("App") {
+                LoginLaunchButt()
+                QuitButt()
+            }
         }
-        .frame(minWidth: 360, minHeight: 480)
+        .formStyle(.grouped)
+        .frame(minWidth: 360, maxWidth: .infinity, minHeight: 480)
+
     }
 }
-
 
 #Preview {
     FormView()
