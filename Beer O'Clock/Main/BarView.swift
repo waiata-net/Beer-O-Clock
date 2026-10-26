@@ -17,7 +17,12 @@ struct BarView: View {
     var body: some View {
         if let weather = brolly.weather,
            weather.isRaining {
-            Image(systemName: "umbrella.fill")
+            Image("Umbrella")
+                .resizable()
+                .scaledToFit()
+                .onChange(of: beer.phase) { _, _ in
+                    render()
+                }
         } else if let pint {
             Image(pint, scale: 1.0, orientation: .up, label: Text("Beer"))
                 .resizable()

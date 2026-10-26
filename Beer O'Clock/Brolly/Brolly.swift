@@ -38,7 +38,7 @@ class Brolly {
     
     func announce() {
         if weather?.isRaining == true {
-            Announce.send("It's Raining!", text: "Grab an Umbrella")
+            Announce.send("It's Raining!", text: "Grab an Umbrella", sound: "Rain")
         }
     }
     

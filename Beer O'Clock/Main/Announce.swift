@@ -18,19 +18,22 @@ struct Announce {
         
         let content = UNMutableNotificationContent()
         content.title = title ?? ""
-        content.body = text
+        content.body = text + " 🔊\(sound ?? "")"
         if let sound {
             content.sound = UNNotificationSound(named: UNNotificationSoundName(sound))
+        } else {
+            print("Sound [\(sound ?? "")] not loaded")
         }
+        
         requestPermission()
         
         let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
         
         center.add(request) { error in
             if let error = error {
-                print("Error adding notification: \(error.localizedDescription)")
+                print("❌ Announce error: \(error.localizedDescription)")
             } else {
-                print("Notification scheduled: \(title ?? "") - \(text)")
+                print("📣 Announcing: \(title ?? "") - \(text) 🔊\(sound ?? "")")
             }
         }
     }

@@ -11,8 +11,12 @@ struct SoundPick: View {
     
     @Binding var sound: String
     
+    func bundled(_ ext: String = "aif") -> [URL] {
+        Bundle.main.urls(forResourcesWithExtension: ext, subdirectory: nil) ?? []
+    }
+    
     var bundledSounds: [URL] {
-        Bundle.main.urls(forResourcesWithExtension: "aif", subdirectory: nil) ?? []
+        bundled("aif") + bundled("caf")
     }
     
     var body: some View {
