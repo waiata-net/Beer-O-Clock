@@ -21,7 +21,7 @@ struct Tock {
         }
     }
     
-    var last: Tick? {
+    var past: Tick? {
         ticks.max {
             $0.time.past < $1.time.past
         }

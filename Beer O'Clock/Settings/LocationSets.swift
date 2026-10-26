@@ -1,5 +1,5 @@
 //
-//  SettingsView.swift
+//  LocationSets.swift
 //  Umbrella
 //
 //  Created by Neal Watkins on 02/03/2026.
@@ -7,12 +7,11 @@
 
 import SwiftUI
 
-struct BrollySets: View {
+struct LocationSets: View {
     
     @AppStorage("city") var city: String = ""
     @AppStorage("longitude") var longitude: Double = 113.54611
     @AppStorage("latitude") var latitude: Double = 22.20056
-    @AppStorage("frequency") var frequency: TimeInterval = 3600
     
     @State private var location: Location?
     
@@ -45,7 +44,7 @@ struct BrollySets: View {
 
 #Preview {
     Form {
-        BrollySets()
+        LocationSets()
     }
     .formStyle(.grouped)
 }

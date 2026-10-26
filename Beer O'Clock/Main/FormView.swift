@@ -9,13 +9,14 @@ import SwiftUI
 
 struct FormView: View {
 
-    @Environment(Beer.self) var beer: Beer
-
     var body: some View {
-        @Bindable var beer = beer
+        
         Form {
-            TockView()
-                .padding()
+            
+            BeerView()
+            BrollyView()
+        
+            
             Section("Daily") {
                 DailySets()
             }
@@ -25,16 +26,15 @@ struct FormView: View {
             }
 
             Section("Location") {
-                BrollySets()
+                LocationSets()
             }
 
             Section("Update") {
-                //                UpdateSets()
+                UpdateSets()
             }
 
             Section("App") {
-                LoginLaunchButt()
-                QuitButt()
+                AppSets()
             }
         }
         .formStyle(.grouped)
@@ -46,5 +46,6 @@ struct FormView: View {
 #Preview {
     FormView()
         .environment(Beer())
+        .environment(Brolly())
         .frame(minHeight: 960)
 }

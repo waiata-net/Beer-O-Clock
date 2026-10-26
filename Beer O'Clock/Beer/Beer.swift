@@ -15,7 +15,7 @@ class Beer {
         didSet { change() }
     }
     
-    var last: Tick?
+    var past: Tick?
     var next: Tick?
     
     var ticker: Timer?
@@ -33,9 +33,9 @@ class Beer {
     }
     
     func check() {
-        let past = tock.last
+        let past = tock.past
         
-        if past?.title != last?.title {
+        if self.past != past {
             past?.announce()
         }
         
@@ -44,7 +44,7 @@ class Beer {
     
     func update() {
         
-        self.last = tock.last
+        self.past = tock.past
         self.next = tock.next
         
         if let next {
@@ -64,8 +64,8 @@ class Beer {
     var phase: CGFloat = 0
     
     var direction: CGFloat {
-        guard let last, let next else { return 1 }
-        return next.phase - last.phase
+        guard let past, let next else { return 1 }
+        return next.phase - past.phase
     }
     
     var remaining: TimeInterval?
@@ -76,13 +76,13 @@ class Beer {
     }
     
     var elapsed: TimeInterval? {
-        guard let last else { return nil }
-        return Date.now.timeIntervalSince(last.time.past)
+        guard let past else { return nil }
+        return Date.now.timeIntervalSince(past.time.past)
     }
     
     var duration: TimeInterval? {
-        guard let last, let next else { return nil }
-        return next.time.future.timeIntervalSince(last.time.past)
+        guard let past, let next else { return nil }
+        return next.time.future.timeIntervalSince(past.time.past)
     }
     
     

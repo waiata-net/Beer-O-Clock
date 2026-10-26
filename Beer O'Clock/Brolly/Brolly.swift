@@ -13,14 +13,18 @@ class Brolly {
     var weather: Weather?
     var timer: Timer?
     
+    init() {
+        tock()
+    }
+    
     func tock() {
         guard let url = Meteo.url(longitude: Settings.longitude, latitude: Settings.latitude) else { return }
-        Task {
+        _ = Task {
             let data = try await URLSession.shared.data(from: url).0
             let weather = try? JSONDecoder().decode(Weather.self, from: data)
             self.weather = weather
             self.tick()
-            self.notify()
+            self.announce()
         }
     }
     
@@ -32,17 +36,10 @@ class Brolly {
         }
     }
     
-    func notify() {
+    func announce() {
         if weather?.isRaining == true {
-            Notify.send("It's Raining!", "Grab an Umbrella")
+            Announce.send("It's Raining!", text: "Grab an Umbrella")
         }
     }
     
-    var icon: String {
-        return switch weather?.isRaining {
-        case true: "☔️"
-        case false: "🌂"
-        default: "☂"
-        }
-    }
 }

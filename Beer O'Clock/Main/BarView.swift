@@ -9,13 +9,17 @@ import SwiftUI
 
 struct BarView: View {
     
-    @Environment(Beer.self) var beer: Beer
+    @Environment(Beer.self) var beer
+    @Environment(Brolly.self) var brolly
     
-    @State var image: NSImage?
-
+    @State var pint: CGImage?
+    
     var body: some View {
-        if let image {
-            Image(nsImage: image)
+        if let weather = brolly.weather,
+           weather.isRaining {
+            Image(systemName: "umbrella.fill")
+        } else if let pint {
+            Image(pint, scale: 1.0, orientation: .up, label: Text("Beer"))
                 .resizable()
                 .scaledToFit()
                 .onChange(of: beer.phase) { _, _ in
@@ -32,14 +36,16 @@ struct BarView: View {
     func render() {
         let renderer = ImageRenderer(content: PintView().environment(beer))
         renderer.scale = NSScreen.main?.backingScaleFactor ?? 2.0
-        if let image = renderer.nsImage {
-            self.image = image
+        if let image = renderer.cgImage {
+            self.pint = image
         }
     }
     
+        
 }
 
 #Preview {
     BarView()
         .environment(Beer())
+        .environment(Brolly())
 }

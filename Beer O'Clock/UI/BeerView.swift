@@ -1,5 +1,5 @@
 //
-//  TockView.swift
+//  BeerView.swift
 //  Beer O'Clock
 //
 //  Created by Neal Watkins on 22/02/2025.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TockView: View {
+struct BeerView: View {
     
     
     @Environment(Beer.self) var beer: Beer
@@ -16,7 +16,7 @@ struct TockView: View {
     
     var body: some View {
         VStack {
-        Text(beer.last?.title ?? "")
+        Text(beer.past?.title ?? "")
             PintView()
                 .frame(minHeight: 180)
             
@@ -32,6 +32,6 @@ struct TockView: View {
 }
 
 #Preview {
-    TockView()
+    BeerView()
         .environment(Beer())
 }

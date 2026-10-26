@@ -24,17 +24,7 @@ struct Tick: Codable, Equatable {
     
     func announce() {
         guard notify else { return }
-        Self.requestPermission()
-        let content = UNMutableNotificationContent()
-        content.title = title
-        content.subtitle = detail
-        if playSound {
-            content.sound = sound
-        }
-
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-        UNUserNotificationCenter.current().add(request)
+        Announce.send(title, text: detail, sound: audio)
     }
     
     static let work = Tick(
@@ -52,12 +42,5 @@ struct Tick: Codable, Equatable {
         audio: "Beer.aif",
         phase: 1
     )
-    
-    static func requestPermission() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-            if let error {
-                print(error.localizedDescription)
-            }
-        }
-    }
+
 }

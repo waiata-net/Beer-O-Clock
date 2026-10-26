@@ -12,12 +12,13 @@ struct BrollyView: View {
     @Environment(Brolly.self) var brolly
     
     var body: some View {
-        MeasurementView(measurement: brolly.weather?.temperature)
-        MeasurementView(measurement: brolly.weather?.precipitation)
+        MeasurementView(measurement: brolly.weather?.temperature, icon: "thermometer")
+        MeasurementView(measurement: brolly.weather?.precipitation, icon: "drop")
     }
 }
 
 #Preview {
     BrollyView()
+        .frame(width: 120, height: 120)
         .environment(Brolly())
 }
